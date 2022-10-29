@@ -11,7 +11,8 @@ public class BMWCar extends Car {
         System.out.println("BMW Beep");
     }
 
+    @Override
     public String toString() {
-        return String.format("BMW model %s", this.model);
+        return String.format("BMW model %s", this.getModel());
     }
 }

@@ -3,7 +3,7 @@ package com.company.Task2;
 import java.util.Objects;
 
 public abstract class Car {
-    protected String model;
+    private String model;
     private String color;
     private String transmissionType;
     private Integer maxSpeed;

@@ -16,7 +16,8 @@ public class VAZCar extends Car {
         return rust;
     }
 
+    @Override
     public String toString() {
-        return String.format("VAZ %s with rust on the body %d%%", this.model, this.rust);
+        return String.format("VAZ %s with rust on the body %d%%", this.getModel(), this.rust);
     }
 }
