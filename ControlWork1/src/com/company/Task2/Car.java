@@ -1,6 +1,9 @@
 package com.company.Task2;
 
+import java.util.Objects;
+
 public abstract class Car {
+    protected String model;
     private String color;
     private String transmissionType;
     private Integer maxSpeed;
@@ -8,7 +11,8 @@ public abstract class Car {
     private Integer price;
     private Boolean turnedOn;
 
-    public Car(String color, String transmissionType, Integer maxSpeed, Integer price) {
+    public Car(String model, String color, String transmissionType, Integer maxSpeed, Integer price) {
+        this.model = model;
         this.color = color;
         this.transmissionType = transmissionType;
         this.maxSpeed = maxSpeed;
@@ -53,5 +57,26 @@ public abstract class Car {
 
     public Boolean getTurnedOn() {
         return this.turnedOn;
+    }
+
+    public String getModel() {
+        return this.model;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Car) {
+            return Objects.equals(this.getModel(), ((Car) obj).getModel());
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((model == null) ? 0 : model.hashCode());
+        return result;
     }
 }

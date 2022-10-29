@@ -31,6 +31,16 @@ public class Main {
 
     public static void Task2() {
         System.out.println("Задание 2");
+        Garage garage = new Garage(5);
+        garage.addCar(
+                new BMWCar("X6", "Black", "Automatic", 250, 15000000),
+                new VAZCar("2101",90, "Green", "Mechanic", 20, 5000),
+                new VAZCar("2101",90, "Green", "Mechanic", 20, 5000),
+                new VAZCar("2106",50, "Red", "Mechanic", 80, 25000),
+                new BMWCar("X4", "Blue", "Automatic", 220, 5000000)
+                );
+        garage.sortPrint(CAR_SORTING.BY_AMOUNT);
+        garage.sortPrint(CAR_SORTING.BY_PRICE);
 
     }
 

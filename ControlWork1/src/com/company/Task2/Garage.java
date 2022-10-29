@@ -13,35 +13,44 @@ public class Garage {
 
     public void addCar(Car... cars) {
         for (Car car : cars) {
-            this.cars.merge(car, 1, Integer::sum);
+            if (this.cars.size() < this.maxCapacity) {
+                this.cars.merge(car, 1, Integer::sum);
+            } else {
+                System.out.println("Not enough space in garage");
+            }
         }
     }
 
-    public void sort(CAR_SORTING sorting) throws Exception {
+    public void sortPrint(CAR_SORTING sorting) {
         if (sorting == CAR_SORTING.BY_PRICE) {
             Map<Car, Integer> sortedCarMap = new TreeMap<>(
                     (o1, o2) -> o2.getPrice().compareTo(o1.getPrice())
             );
             sortedCarMap.putAll(this.cars);
-            this.cars = sortedCarMap;
+            StringBuilder info = new StringBuilder();
+            for (Map.Entry<Car, Integer> entry : sortedCarMap.entrySet()) {
+                info.append(String.format("Машина %s в количестве %d%n", entry.getKey(), entry.getValue()));
+            }
+            System.out.println(info);
 
         } else if (sorting == CAR_SORTING.BY_AMOUNT) {
             List<Map.Entry<Car, Integer>> carList =
-                    new LinkedList<Map.Entry<Car, Integer>>(this.cars.entrySet());
+                    new LinkedList<>(this.cars.entrySet());
             carList.sort((o1, o2) -> (o2.getValue()).compareTo(o1.getValue()));
-            this.cars = new HashMap<>();
+            StringBuilder info = new StringBuilder();
             for (Map.Entry<Car, Integer> entry : carList) {
-                this.cars.put(entry.getKey(), entry.getValue());
+                info.append(String.format("Машина %s в количестве %d%n", entry.getKey(), entry.getValue()));
             }
+            System.out.println(info);
         } else {
-            throw new Exception("Ivalid sort type");
+            System.out.println("Invalid sort type");
         }
     }
 
     public String toString() {
         StringBuilder info = new StringBuilder();
         for (Map.Entry<Car, Integer> entry : this.cars.entrySet()) {
-            info.append(String.format("Машина %s в количестве %d%n", entry.getKey(), entry.getValue()))
+            info.append(String.format("Машина %s в количестве %d%n", entry.getKey(), entry.getValue()));
         }
         return info.toString();
     }
