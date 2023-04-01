@@ -1,7 +1,6 @@
 package com.example.blogapi.controllers;
 
 import com.example.blogapi.models.Post;
-import com.example.blogapi.schemas.PostSchema;
 import com.example.blogapi.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +16,7 @@ public class PostController {
     PostService postService;
 
     @GetMapping("")
-    public List<PostSchema> getAllPosts() {
+    public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
 

@@ -13,7 +13,7 @@ public class Comment {
     private int id;
     private String body;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "post")
     @JsonIgnore
     private Post post;
