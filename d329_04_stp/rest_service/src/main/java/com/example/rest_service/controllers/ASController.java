@@ -16,6 +16,10 @@ public class ASController {
     @Autowired
     ASService asService;
 
+    /**
+     * test 123
+     * @return
+     */
     @GetMapping("")
     public List<AdditionalService> getAllAS() {
         return asService.getAllAS();
