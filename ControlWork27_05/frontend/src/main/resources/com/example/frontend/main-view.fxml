@@ -11,13 +11,6 @@
     </padding>
    <children>
       <TableView fx:id="mainTable" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="id" />
-          <TableColumn prefWidth="75.0" text="name" />
-          <TableColumn prefWidth="75.0" text="genre" />
-          <TableColumn prefWidth="75.0" text="duration" />
-          <TableColumn prefWidth="75.0" text="year" />
-        </columns>
       </TableView>
    </children>
 </VBox>

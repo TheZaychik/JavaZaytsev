@@ -9,5 +9,6 @@ module com.example.frontend {
     requires com.almasb.fxgl.all;
 
     opens com.example.frontend to javafx.fxml;
+    opens com.example.frontend.schemas to com.google.gson;
     exports com.example.frontend;
 }
