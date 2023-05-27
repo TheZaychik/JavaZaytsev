@@ -1,9 +1,9 @@
 package com.example.frontend;
 
+import com.example.frontend.schemas.Booking;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class HelloController {
     @FXML
-    private ListView bookList;
+    private ListView<Booking> bookList;
 
     @FXML
     protected void initialize() throws IOException {
