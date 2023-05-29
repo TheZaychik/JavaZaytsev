@@ -17,8 +17,8 @@ public class ASController {
     ASService asService;
 
     /**
-     * test 123
-     * @return
+     * Возвращает список всех сервисов
+     * @return List<AdditionalService>
      */
     @GetMapping("")
     public List<AdditionalService> getAllAS() {

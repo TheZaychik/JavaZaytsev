@@ -17,5 +17,10 @@ public class Booking {
 
     public Integer price;
 
+    @Override
+    public String toString() {
+        return "ID: " + id.toString() + " Room: " + room.roomNumber;
+    }
+
 
 }

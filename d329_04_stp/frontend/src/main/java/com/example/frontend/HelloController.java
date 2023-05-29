@@ -1,36 +1,24 @@
 package com.example.frontend;
 
 import com.example.frontend.schemas.Booking;
+import com.example.frontend.utils.BookRequests;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.ListView;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
+
+import java.util.List;
 
 public class HelloController {
     @FXML
-    private ListView<Booking> bookList;
+    private ListView<Booking> bookingListView;
 
     @FXML
-    protected void initialize() throws IOException {
-        URL url = new URL("http://localhost:8080/booking");
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-        con.connect();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
-        in.close();
-
+    protected void initialize() throws  UnirestException {
+        List<Booking> bookings = BookRequests.executeGet();
+        bookingListView.setItems(FXCollections.observableArrayList(bookings));
     }
 
 
